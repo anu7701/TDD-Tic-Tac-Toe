@@ -11,17 +11,17 @@ configure({ adapter: new Adapter() });
 
 
 describe("Basic rendering of Board",()=>{
+    it("should render 9 squares", ()=>
+    {
+        const board=render(<Board />);
+        const squ=board.getAllByRole('button')
+        expect (squ).toHaveLength(9);
+    });
     it("Should render three rows of squares board", ()=>{
         const board=shallow(<Board />);
         expect(board.find(".board-row")).toHaveLength(3);
     });
-    it("should render 9 squares", ()=>
-    {
-        const board=render(<Board />);
-        const boardId=board.getAllByTestId('board-row')
-        const squ=board.getAllByRole('button')
-        expect (squ).toHaveLength(9);
-    });
+    
 
 })
 
